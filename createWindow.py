@@ -5,7 +5,7 @@
 #
 # Author        : Vauke
 # Create        : 2018-06-15 18:04:42
-# Last Modified : 2018-06-17 20:50:35
+# Last Modified : 2018-06-21 10:33:38
 
 import pygame
 from pygame.locals import *
@@ -34,8 +34,8 @@ class Plane(object):
 
 class HeroPlane(Plane):
     def __init__(self, screen):
-        Plane.__init__(self, screen, 190, 700, 'feiji/hero1.png')
-        #super().__init__()
+        #Plane.__init__(self, screen, 190, 700, 'feiji/hero1.png')
+        super(HeroPlane, self).__init__(screen, 190, 700, 'feiji/hero1.png')
 
     def move(self, direction):
         if direction == 'LEFT':
@@ -67,7 +67,8 @@ class HeroPlane(Plane):
 
 class EnemyPlane(Plane):
     def __init__(self, screen):
-        Plane.__init__(self, screen, 0, 0, 'feiji/enemy0.png')
+        #Plane.__init__(self, screen, 0, 0, 'feiji/enemy0.png')
+        super(EnemyPlane, self).__init__(screen, 0, 0, 'feiji/enemy0.png')
 
         self.direction = 'RIGHT'
 
@@ -110,11 +111,13 @@ class Bullet(object):
 
 class HeroBullet(Bullet):
     def __init__(self, screen, x, y):
-        Bullet.__init__(self, screen, x + 40, y - 20, 'feiji/bullet.png')
+        #Bullet.__init__(self, screen, x + 40, y - 20, 'feiji/bullet.png')
+        super(HeroBullet, self).__init__(screen, x + 40, y - 20, 'feiji/bullet.png')
 
 class EnemyBullet(Bullet):
     def __init__(self, screen, x, y):
-        Bullet.__init__(self, screen, x + 25, y + 40, 'feiji/bullet1.png')
+        #Bullet.__init__(self, screen, x + 25, y + 40, 'feiji/bullet1.png')
+        super(EnemyBullet, self).__init__(screen, x + 25, y + 40, 'feiji/bullet1.png')
 
     def display(self):
         self.screen.blit(self.image, (self.x, self.y))
